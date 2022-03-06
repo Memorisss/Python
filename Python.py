@@ -969,9 +969,6 @@
 ######################################################################################################################
 ######################################################################################################################
 
-
-
-
 # import random
 # import string
 
@@ -1042,13 +1039,6 @@
 ######################################################################################################################
 
 
-
-
-
-
-
-
-
 # import random
 # import string
 #
@@ -1074,3 +1064,427 @@
 #         print()
 #     elif x in string.punctuation:
 #         print('corect password')
+
+
+
+
+## Квадраты и кубы
+
+#
+# for i in range(1,21):
+#     if i % 2 == 0 or sum(divmod(i,10)) % 2 == 0:
+#         print(i**2)
+#     else:
+#         print('\t',i**3)
+
+
+
+
+
+# def function (a:int,b:int):
+#     return a * b
+# function(10,2)
+#
+#
+
+
+# def function_with_default_param(fuctorial_base:int,is_verbose_output: bool=False):
+#     factorial = 1
+#     for i in range(1, fuctorial_base+1):
+#         factorial = factorial * i
+#         if is_verbose_output:
+#             print("Факториал числа",fuctorial_base,'равен',factorial)
+#     return factorial
+#
+# print(function_with_default_param(4,True))
+
+#returtn возвращает значения после return код не выводит значение
+# def func():
+#     print(1)
+#     print(2)
+#     return 0
+#     print(4)
+#     print(3)
+# print(func())
+
+
+# def contru():
+#     pass
+# print(contru())
+
+ # функция возвращает несколько значений после return класса tuple то есть кортеж
+# def fan():
+#     return 1,2,3
+# print(type(fan()))
+
+
+
+# Yield ключевое слово для возврата значения из функций генератора отличаеться от return тем что не прекращает выполнение функции
+# def fun_yield (a:int,b:int):
+#     yield a+b
+#
+# print(fun_yield(5,10))
+# for i in fun_yield(5,10):
+#     print(i)
+
+
+
+# def fun1_yiel(a:int,b:int):
+#     yield  a+b
+#     yield  a-b
+#     yield  a*b
+# for i in fun1_yiel(7,9):
+#     print(i)
+
+
+# #  область видимости
+
+# def obl_vidimosti():
+#     global param1
+#     param1 = 10
+#     return param1
+#
+# print(obl_vidimosti())
+
+#
+# value = 10
+# def fun_obl(a:float):
+#     return a**fun_obl()
+# print(fun_obl(2.5))
+#
+
+# global берем переменную из общей программы и спользуем в функции при этом локально сохраняеться значение а глобально остаеться такое же
+# global name
+# name = 10
+# def fn ():
+#     global name
+#     name += 1
+#     print(name)
+# print(name,fn())
+
+# # локальные переменные функция locals()
+# def fun_local(a:float):
+#     num1 = 15
+#     num2 = "Переменная локальная"
+#     print(locals())
+# fun_local(1.5)
+
+# # функция внутри функции или же функция как обьект
+
+# def fun1(a:int):
+#     value = 10
+#     def fun2():
+#         return a**value
+#     return fun2()
+# print(fun1(2))
+
+
+
+
+# функция х2 использование
+# def fn(g):
+#     result = g(10)
+#     return result
+# def fn2(a:int):
+#     return a ** a
+# print(fn(fn2))
+
+
+
+
+# # разобраться как делать с callable
+# def fun0(a:float):
+#     return a ** 10
+#
+# def fun2(a:float):
+#     return a ** 3
+#
+# from typing import Callable
+#
+# def fun1(a:float,f:callable()):
+#     return f(a)
+#
+# print(fun1(2,fun0()))
+
+
+# # Функцию можно записать в переменную
+# echo = print
+# echo(1)
+# callable(echo)
+# callable(print)
+# callable('print')
+
+# являеться ли обьект вызываемым
+# print(callable(print))
+
+
+
+## лямбда  выражения
+# возвращает то что принимает
+# func = lambda x:x
+# print(func(4))
+
+# # функция делает каккието преоброзования
+# func = lambda x,z: x*z+1
+# print(func(4,5))
+
+# # функция которая принимает аргументом другую функцию
+# fun = lambda a: a*10
+# fun1 = lambda c, d: c(d*2)
+# print(fun1(fun,3))
+
+
+
+
+#### # *args **kwargs словарик это **kwargs а список это *args
+# # arg *my_args не известно количество аргументов
+# def fun_(prefix:str,*my_args):
+#     for arg in my_args:
+#         print(prefix,arg)
+# fun_('привет','мише','коле','пети')
+
+
+# # **kwargs
+# def fun_kwargs(**my_kwargs):
+#     if 'name' in my_kwargs.keys():
+#         print('Привет',my_kwargs['name'])
+#         for key, value in my_kwargs.items():
+#             if key != 'name':
+#                 print('Аргумент',key,'равен',value)
+#
+# fun_kwargs(name='Саша',city='Innopolis')
+
+
+
+
+# #     домашнее задание написание игры чудовище и герой
+
+#### Требуется
+# - Использовать циклы при написании программы
+# - Использовать функции при написании программы
+#
+
+
+#импортируем библиотеку рандом для возможности рандомного получения жизни и атаки у наших персонажей  а так же силы меча и количество дополнительных жизней
+import  random
+#Создание списка Монстров
+# Создание списка бонусов на силу
+# Создание списка бонусов на жизнь
+Game_person = ['Крип','Троль','Дотер','Волкодав','Темный эльф','Злой маг']
+Game_Bonus_attack = ['Лук','Зачарованный мечь']
+Game_Bonus_live =  ['Яблоко','Золотое яблоко']
+
+# Создание переменной и обьединение всех списков в один гейм процесс
+Game_Procces = Game_person + Game_Bonus_attack + Game_Bonus_live
+
+# Создание переменной с рандомными гейм процессами
+Game_Procces_Random = random.choice(Game_Procces)
+
+# Рандомная назначение жизни и атаки для нашего гейм процесса
+Game_live = random.randint(1,15)
+Game_strong = random.randint(1,10)
+
+
+
+#Создание нашего Героя
+Guardion_live = 10
+Guardinon_strong = 10
+
+
+ # Создание  переменных для ввода ходов 1/2
+num1 = 'Берем (1)'
+num2 = 'Проходим мимо (2)'
+ # под вопросов нужны ли они вообще пока что пусть будут
+
+
+# # Функция начала игры
+def start_game():
+    start = input('Введите "Играть" для начал игры. \n.....')
+    if start == 'Играть':
+        print('\n\n В путь............ \n .............. \nЗагрузка мира ')
+        input(' \n Нажмите для продолжени')
+    else:
+        start != 'Играть'
+        print('Всего Хо Ро Ше Го !')
+        exit()
+        return
+start_game()
+
+
+gen = print('\n На вашем пути,',Game_Procces_Random)
+
+# Проверка на бонусы и назанчение рандомным числом
+# Бонус Яблоко
+if Game_Procces_Random == 'Яблоко':
+    print('Вам попался Игровой бонус :','"',Game_Procces_Random,'"','Дополнительная жизнь +',Game_live)
+    queshon = input('Что делаем ? \n ..... \n Берем (1) \n Не берем (2) \n....')
+
+    # Проверка на ввод пользователя при согласии бонус активириуеться
+    if queshon == '1':
+        Guardion_live += Game_live
+        print('Ваше здоровье теперь равно = ',Guardion_live)
+
+    # При отказе остаеться неизменным
+    else:
+        queshon == '2'
+        print('Вы не взяли,',Game_Procces_Random ,'жизнь могла увеличиться на +',Game_live)
+
+# Бонус Золотое яблоко
+elif Game_Procces_Random == 'Золотое яблоко':
+    print('Поздравляю вам попалось, ','"',Game_Procces_Random,'"','Дополнительная жизнь +',Game_live+6)
+    queshon = input('Что делаем ? \n ..... \n Берем (1) \n Не берем (2) \n....')
+
+    if queshon == '1':
+        Guardion_live += Game_live+6
+        print('Ваше здоровье теперь равно = ',Guardion_live)
+
+
+    else:
+        queshon == '2'
+        print('Вы не взяли, ',Game_Procces_Random,' жизнь могла увеличиться на +', Game_live+6)
+
+# Бонус Лук
+elif Game_Procces_Random == 'Лук':
+    print('Повезло вы нашли, ','"',Game_Procces_Random,'"','Дополнительный урон +',Game_strong)
+    queshon = input('Что делаем ? \n ..... \n Берем (1) \n Не берем (2) \n....')
+
+    if queshon == '1':
+        Guardinon_strong += Game_strong
+        print('Ваша сила теперь увеличина на ',Guardinon_strong)
+
+    else:
+        queshon == '2'
+        print('Вы не подобрали, ','"',Game_Procces_Random,'"',',урон мог увеличиться на +',Game_strong)
+
+#  Бонус Зачарованный мечь
+elif Game_Procces_Random == 'Зачарованный мечь':
+    print('Великолепно перед вами ,','"',Game_Procces_Random,'"','Дполнительный урон +',Game_strong+6)
+    queshon = input('Что делаем ? \n ..... \n Берем (1) \n Не берем (2) \n....')
+
+    if queshon == '1':
+        Guardinon_strong += Game_strong+6
+        print('Ваша сила теперь увеличина на ',Guardinon_strong)
+
+    else:
+        queshon == '2'
+        print('Вы не подобрали, ','"',Game_Procces_Random+6,'"','урон мог увеличиться на +',Game_strong)
+
+elif Game_person:
+    print('А вот и наш первый не доброжелатель :',Game_Procces_Random,'\n Характеристика  \n Жизнь : ',Game_live,'\n Сила : ',Game_strong)
+    queshon_Person = input('Что будем делать ? \n ......')
+
+
+
+
+# Проверка на бонусные процессы игры закончены с воможностью отказаться или согласиться на приняте бонусов
+
+# Начало игры добавления
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def start_():
+#     start_game = input('Для начала игры введите "Start". \n\t:')
+#     if start_game:
+#         start_game = 'Start'
+#         print('Ваш персонаж : Рыцарь','\nХарактеристики рыцаря.','\n\tКолличество жизней :',live_guardion,'\n\tСила атаки:',attack_guardion)
+#         lets_goy = input('\n\n В путь!..........................')
+#         print('\n На вашем пути встретился: Троль. -_-')
+#
+#     else:
+#         start_game != 'Start'
+#         print('Поиграем в следующий раз.')
+#         exec
+#         return
+# start_()
+
+
+
+# troll_live = random.randint(1,30)
+# troll_attack = random.randint(1,15)
+# troll_live_zakrep = troll_live
+# troll_attack_zakrep = troll_attack
+#
+# troll_1 = 'Характеристики: \n Жизней: ' + str(troll_live) + '\n Сила: ' + str(troll_attack)
+# print(troll_1)
+#
+# queshon_troll = input('\n Что будем делать ? \n Сломать (1) : \n Убежать и набраться сил (2) : \n ...')
+#
+
+
+
+
+
+
+
+
+# if  queshon_troll == '1':
+#     print('\n \t\t\t Вы атакуете Троля.......\nСила удара  рыцаря ..... :',attack_guardion,'\n : Жизнь Троля ..... :',troll_live_zakrep)
+#     print(input('Нажмите для удара.'),'\n \t\t\t: тыц.....')
+#
+#     if attack_guardion >= troll_live_zakrep:
+#         troll_live_zakrep -= attack_guardion
+#         # live_guardion -= troll_attack
+#         troll_live_zakrep < 0
+#         troll_live_zakrep = 0
+#         print('\nВы победили у троля :',troll_live_zakrep,' жизней','\n  \t\tУ рыцаря осталось :',live_guardion,' Жизней')
+#     elif troll_live_zakrep > attack_guardion:
+#         while troll_live_zakrep > attack_guardion:
+#             troll_live_zakrep -= attack_guardion
+#             print('Оставшиеся жизнь у троля :',troll_live_zakrep)
+#             if troll_live_zakrep != 0:
+#                 input('Троль: Моя очередь ебнуть тебя!')
+#                 live_guardion -= troll_attack
+#                 print('Оставшиеся жизнь у рыцаря :',live_guardion)
+#                 input('\n Ударить :')
+#                 troll_live_zakrep -= attack_guardion
+#                 print('оставшиеся колличество жизней у троля :',troll_live_zakrep)
+#             else:
+#                 0 > live_guardion
+#                 print('Проебал')
+#
+
+
+# else:
+#     queshon_troll == '2'
+#     print('\n Вы Убегаете от Троля')
+#
+
+
+
+
+
+
+
+# while queshon_troll == '2':
+#     input('Введи, "Быстрее"  что бы бежать быстрее !')
+#     print('"Рыцарь : Я ускорился спасибо"')
+#     flesh = input('Режим Flesh : Введите "1" : ')
+#     if flesh == '1':
+#         print('Нихоя :)')
+#     break
+
+# след этап найти сундук с сокровищами  + списздить коня и след уровень монстра
