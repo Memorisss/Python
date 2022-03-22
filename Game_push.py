@@ -40,13 +40,9 @@ while Pobeda < 10:
     num = input('Отпровляемся в путь ........')
 
 
-    # print('Ваш нынещний урон ',attack_guardion) # Проверка добавился ли урон
 
-    # Проверка бонусных предметов если выпадает даеться 2 выбора взять или не взять
-    #         Зачарованный Мечь
 
-    # Если встречаеться монстр
-
+# функция Боя
     def fight(a: str):
         global Process_Game_live
         global attack_guardion
@@ -75,21 +71,21 @@ while Pobeda < 10:
                     exit()
         return
 
-
+#  если выпадает бонусные предметы
     if person == 'Зачарованный Мечь':
         attack_guardion += Process_Game_atack + 2
         print('Великолепно перед вами ,', '"', person, '"', 'Дполнительный урон увеличился на  +',
               Process_Game_atack + 2,
               '\n Ваша атака равна:', attack_guardion)
 
-    elif person == 'Яблоко':
 
+    elif person == 'Яблоко':
         live_guardion += Process_Game_live
         print('Вам попался Игровой бонус :', '"', person, '"', 'Дополнительная жизнь увеличина на +', Process_Game_live,
               '\n Ваша жизнь равна:', live_guardion)
 
 
-
+# или на нашем пути встречаеться монстр
     elif person:
         print('\n\n\nНа вашем пути,', person, 'Его жизнь', Process_Game_live, 'Сила Атаки :', Process_Game_atack)
         queshon_fith = input(queshon_fit)
@@ -100,7 +96,7 @@ while Pobeda < 10:
         elif queshon_fith == no:
             print('Убежали')
 
-
+#  если мы вводим не понятные символы
         else:
             print('Я вас не понял ')
             if queshon_fith != yes:
