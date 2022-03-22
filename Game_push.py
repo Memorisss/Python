@@ -103,12 +103,12 @@ while Pobeda < 10:
 
         else:
             print('Я вас не понял ')
-            queshon_fith = input(queshon_fit)
-            while queshon_fith != yes:
-                queshon_fith = input(queshon_fit)
-                if queshon_fith == yes:
-                    fight(person)
+            if queshon_fith != yes:
+                while queshon_fith != yes:
+                    queshon_fith = input(queshon_fit)
+                    if queshon_fith == yes:
+                        fight(person)
 
-                elif queshon_fith == no:
-                    print('Убежали')
-                    break
+                    elif queshon_fith == no:
+                        print('Убежали')
+                        break
