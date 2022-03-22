@@ -28,7 +28,9 @@ start_game()
 
 # Цикл будет работать до тех пор пока Переменная Pobeda меньше 10
 Pobeda = 0
-
+queshon_fit =('\n Что будем делать \n....\n\n Атаковать (1) \n Убежать (2)\n.....')
+yes = '1'
+no = '2'
 # Создание цикла
 while Pobeda < 10:
     person_random = Process_Game_Person + Process_Game_Bonus_Live + Process_Game_Bonus_Attack  # рандомный персонаж / бонус в одной переменной
@@ -36,80 +38,77 @@ while Pobeda < 10:
     Process_Game_live = random.randint(1, 30)  # рандмоное число жизни
     Process_Game_atack = random.randint(1, 15)  # рандомное число атаки
     num = input('Отпровляемся в путь ........')
-    queshon_Yes = '1'
-    queshon_No = '2'
+
 
     # print('Ваш нынещний урон ',attack_guardion) # Проверка добавился ли урон
 
     # Проверка бонусных предметов если выпадает даеться 2 выбора взять или не взять
     #         Зачарованный Мечь
-    if person == 'Зачарованный Мечь':
-        attack_guardion += Process_Game_atack + 2
-        print('Великолепно перед вами ,', '"', person, '"', 'Дполнительный урон увеличился на  +', Process_Game_atack + 2,'\n Ваша атака равна:',attack_guardion)
-
-    # Яблоко
-    elif person == 'Яблоко':
-        live_guardion += Process_Game_live
-        print('Вам попался Игровой бонус :', '"', person, '"', 'Дополнительная жизнь увеличина на +', Process_Game_live,'\n Ваша жизнь равна:',live_guardion)
-
 
     # Если встречаеться монстр
+
+    def fight(a: str):
+        global Process_Game_live
+        global attack_guardion
+        global person
+        global live_guardion
+        global Pobeda
+        global Process_Game_atack
+        while Process_Game_live >= 0:
+            print('\n Тыщь.........')
+            Process_Game_live -= attack_guardion
+            print('Осталось', Process_Game_live, 'жизней у', person)
+
+            if Process_Game_live <= 0:
+                Pobeda += 1
+                print('Вам зачеслен ', Pobeda ,' уровень')
+                if Pobeda == 10:
+                    print('Поздравляю вы закончили игру')
+
+            elif Process_Game_live > 0:
+                print('\n \t', person, ' : " Моя очередь отвечать тебе" ')
+                live_guardion -= Process_Game_atack
+                print('Хрясь...... от ', person, '\n\t Оставшиеся количество жизней у Рыцаря :', live_guardion)
+
+                if live_guardion <= 0:
+                    print('Вы проиграли')
+                    exit()
+        return
+
+
+    if person == 'Зачарованный Мечь':
+        attack_guardion += Process_Game_atack + 2
+        print('Великолепно перед вами ,', '"', person, '"', 'Дполнительный урон увеличился на  +',
+              Process_Game_atack + 2,
+              '\n Ваша атака равна:', attack_guardion)
+
+    elif person == 'Яблоко':
+
+        live_guardion += Process_Game_live
+        print('Вам попался Игровой бонус :', '"', person, '"', 'Дополнительная жизнь увеличина на +', Process_Game_live,
+              '\n Ваша жизнь равна:', live_guardion)
+
+
+
     elif person:
         print('\n\n\nНа вашем пути,', person, 'Его жизнь', Process_Game_live, 'Сила Атаки :', Process_Game_atack)
-        queshon_fith = input('\n Что будем делать \n....\n\n Атаковать (1) \n Убежать (2)\n.....')
+        queshon_fith = input(queshon_fit)
+        if queshon_fith == yes:
+            print('Погнали')
+            fight(person)
 
-        if queshon_fith == queshon_Yes:
-            print('\n Рыцарь : "Будем ебашиться значит"')
-            input('Нажми для удара.......')
-
-            # Цикл длиться до тех пор пока жизнь врага больше 0
-            while Process_Game_live >= 0:
-                print('\nТыщь......')
-                Process_Game_live -= attack_guardion
-                print('осталось', Process_Game_live, 'Жизней у ', person)
-
-                # Проверка если жизнь врага меньше или равна 0 то мы выграли нашего монстра и переменная pobeda пребовляеться на +1, цикл начинаеться заново
-
-                if Process_Game_live <= 0:
-                    Pobeda += 1
-                    print('\n\t\t Вы победили по этому вам зачеслен', Pobeda, 'Уровень \n')
-
-                    # Если наша перменная Pobeda  равна 10 то игра закончена
-                    if Pobeda == 10:
-                        print('\n\n\n\t\t\t Поздравляю вы закончили игру')
-
-                #  Если жизнь врага после первого моего удара все еще больше 0 значит он жив и может нам ответить
-                elif Process_Game_live > 0:
-                    print('\n\nМоя Очередь ебнуть тебя')
-                    num1 = input('Нажми что бы принять удар \n.....')
-                    live_guardion -= Process_Game_atack
-                    print('Хрясь..... от ', person)
-                    print('оствашиеся количество жизней рыцаря',
-                          live_guardion)  # прошлая функция где я бью первым
-                    input('Нажми для продолжения \n....')
-
-                    # если жизнь рыцаря меньше или равно 0 то мы проиграли цикл завершаеться
-                    if live_guardion <= 0:
-                        print('Вы проиграли')
-                        exit()
-
-        else:
-            queshon_fith == queshon_No
+        elif queshon_fith == no:
             print('Убежали')
 
-        # Если мы соглашаемся происходит  битва
 
+        else:
+            print('Я вас не понял ')
+            queshon_fith = input(queshon_fit)
+            while queshon_fith != yes:
+                queshon_fith = input(queshon_fit)
+                if queshon_fith == yes:
+                    fight(person)
 
-
-
-
-
-
-
-
-# переменная с функции атаки и жизни рыцаря не сохраняються глобально в цикле а только локально
-
-
-
-
-
+                elif queshon_fith == no:
+                    print('Убежали')
+                    break
