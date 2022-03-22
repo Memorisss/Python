@@ -44,61 +44,13 @@ while Pobeda < 10:
     # Проверка бонусных предметов если выпадает даеться 2 выбора взять или не взять
     #         Зачарованный Мечь
     if person == 'Зачарованный Мечь':
-        print('Великолепно перед вами ,', '"', person, '"', 'Дполнительный урон +', Process_Game_atack + 2)
-        queshon_bonus = input('Что делаем ? \n ..... \n Берем (1) \n Не берем (2) \n.... \t')
-
-        if queshon_bonus == queshon_Yes:
-            attack_guardion += Process_Game_atack + 2
-            print('Ваша сила атаки теперь увеличина на', attack_guardion)
-
-
-        elif queshon_bonus == queshon_No:
-            print('Вы не подобрали, ', '"', person, '"', ',урон мог увеличиться на +', Process_Game_atack + 2)
-
-        # Повторяющийся цикл если мы вводим не то значение при ответе на вопрос берем или нет
-        elif queshon_bonus != queshon_Yes and queshon_No:
-            print('\n\t "Я вас не понял, введите (1) либо (2)" ')
-
-            while queshon_bonus != queshon_Yes and queshon_No:
-                queshon_bonus = input('Что делаем ? \n ..... \n Берем (1) \n Не берем (2) \n.... \t')
-
-                if queshon_bonus == queshon_Yes:
-                    attack_guardion += Process_Game_atack
-                    print('Ваша сила атаки теперь увеличина на ', attack_guardion)
-                    break
-
-                elif queshon_bonus == queshon_No:
-                    print('Вы не подобрали, ', '"', person, '"', ',урон мог увеличиться на +', Process_Game_atack)
-                    break
+        attack_guardion += Process_Game_atack + 2
+        print('Великолепно перед вами ,', '"', person, '"', 'Дполнительный урон увеличился на  +', Process_Game_atack + 2,'\n Ваша атака равна:',attack_guardion)
 
     # Яблоко
     elif person == 'Яблоко':
-        print('Вам попался Игровой бонус :', '"', person, '"', 'Дополнительная жизнь +', Process_Game_live)
-        queshon_bonus = input('Что делаем ? \n ..... \n Берем (1) \n Не берем (2) \n.... \t')
-
-        if queshon_bonus == queshon_Yes:
-            live_guardion += Process_Game_live
-            print('Ваше здоровье теперь равно = ', live_guardion)
-
-
-        elif queshon_bonus == queshon_No:
-            print('Вы не взяли,', person, 'жизнь могла увеличиться на +', Process_Game_live)
-
-        elif queshon_bonus != queshon_Yes and queshon_No:
-            print('\n\t "Я вас не понял, введите (1) либо (2)" ')
-
-            # Повторяющийся цикл если мы вводим не то значение при ответе на вопрос берем или нет
-            while queshon_bonus != queshon_Yes and queshon_No:
-                queshon_bonus = input('Что делаем ? \n ..... \n Берем (1) \n Не берем (2) \n.... \t')
-
-                if queshon_bonus == queshon_Yes:
-                    attack_guardion += Process_Game_atack
-                    print('Ваша сила атаки теперь увеличина на ', attack_guardion)
-                    break
-
-                elif queshon_bonus == queshon_No:
-                    print('Вы не подобрали, ', '"', person, '"', ',урон мог увеличиться на +', Process_Game_atack)
-                    break
+        live_guardion += Process_Game_live
+        print('Вам попался Игровой бонус :', '"', person, '"', 'Дополнительная жизнь увеличина на +', Process_Game_live,'\n Ваша жизнь равна:',live_guardion)
 
 
     # Если встречаеться монстр
@@ -144,7 +96,6 @@ while Pobeda < 10:
         else:
             queshon_fith == queshon_No
             print('Убежали')
-
 
         # Если мы соглашаемся происходит  битва
 
