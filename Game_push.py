@@ -9,12 +9,26 @@ Process_Game_Person = ['Троль', 'Кутикула', 'Злой китаец'
 Process_Game_Bonus = [ 'Зачарованный Мечь','Яблоко']
 
 
+# Функция старта игры Просто по приколу
+def start_game():
+    start_game = input('Герой и Чудовище.\n Введите "Start" для началы игры. \n....')
+    if start_game == "Start":
+        print('\n\n\nВаш персонаж : "Рыцарь" \nОписание  \n Жизней :', live_guardion, '\n Сила Удара : ',
+              attack_guardion)
+    else:
+        start_game != "Start"
+        print('Exec Game')
+        exit()
+        return
+
+
+start_game()
+
 
 # функция Боя Рыцаря и Чудовишь
 def fight(a: str):
     global Process_Game_live
     global attack_guardion
-    global person
     global live_guardion
     global Pobeda
     global Process_Game_atack
@@ -37,12 +51,8 @@ def fight(a: str):
             if live_guardion <= 0:
                 print('Вы проиграли')
                 exit()
+
     return
-
-
-
-
-
 
 
 
