@@ -31,12 +31,13 @@ Pobeda = 0
 queshon_fit =('\n Что будем делать \n....\n\n Атаковать (1) \n Убежать (2)\n.....')
 yes = '1'
 no = '2'
+queshon_bonus = ('Что делаем ? \n ..... \n Берем (1) \n Не берем (2) \n.... \t')
 # Создание цикла
 while Pobeda < 10:
     person_random = Process_Game_Person + Process_Game_Bonus_Live + Process_Game_Bonus_Attack  # рандомный персонаж / бонус в одной переменной
     person = random.choice(person_random)
     Process_Game_live = random.randint(1, 30)  # рандмоное число жизни
-    Process_Game_atack = random.randint(1, 15)  # рандомное число атаки
+    Process_Game_atack = random.randint(1, 20)  # рандомное число атаки
     num = input('Отпровляемся в путь ........')
 
 
@@ -73,10 +74,16 @@ while Pobeda < 10:
 
 #  если выпадает бонусные предметы
     if person == 'Зачарованный Мечь':
-        attack_guardion += Process_Game_atack + 2
-        print('Великолепно перед вами ,', '"', person, '"', 'Дполнительный урон увеличился на  +',
-              Process_Game_atack + 2,
-              '\n Ваша атака равна:', attack_guardion)
+        print('Великолепно перед вами ,', '"', person, '"', 'Дполнительный урон +', Process_Game_atack + 2)
+        queshon_b = input(queshon_bonus)
+
+        if queshon_b == yes:
+            attack_guardion = Process_Game_atack + 2
+            print('Вы подобрали мечь, сила атаки равно :', attack_guardion)
+
+
+        elif queshon_b == no:
+            print('Вы не подобрали, ', '"', person, '"  c силой атаки :', Process_Game_atack + 2)
 
 
     elif person == 'Яблоко':
